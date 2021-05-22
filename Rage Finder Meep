@@ -1,0 +1,97 @@
+if game.PlaceId == 370731277 then 
+
+
+
+
+_G.ToggleColor = Color3.fromRGB(255,0,0)
+_G.ButtonColor = Color3.fromRGB(0,255,0)
+_G.SliderColor = Color3.fromRGB(0,0,255)
+
+local library = loadstring(game:HttpGet(('https://pastebin.com/raw/FsJak6AT')))() -- It's obfuscated, I won't let you see my ugly coding skills. =)
+
+local w = library:CreateWindow("Rage Finder - Meepcity edition")
+
+local b = w:CreateFolder("Autofarm")
+
+
+
+b:Button("Lake Money Farm",function(bool)
+game.ReplicatedStorage.Connection:InvokeServer(9, 1)
+game:GetService("RunService").RenderStepped:Connect(function()
+game.ReplicatedStorage.Connection:InvokeServer(49)
+game.ReplicatedStorage.Connection:InvokeServer(50)
+game.ReplicatedStorage.Connection:InvokeServer(51)
+local ohNumber1 = 11
+local ohTable2 = {
+	["FishingPolePos"] = game:GetService("Workspace").TempFish.Position,
+	["Power"] = 1,
+	["Face"] = game:GetService("Workspace").TempFish.Position,
+	["PlayerPos"] = game:GetService("Workspace").TempFish.Position,
+	["FishingZonePos"] = Vector3.new(-5.29345703, -18.0412292, 43.7173767)
+}
+game:GetService("ReplicatedStorage").Connection:InvokeServer(ohNumber1, ohTable2)
+end)
+print ("Autofarm has started")
+end)
+
+
+
+
+b:Button("Money Increase",function()
+        game.ReplicatedStorage.Connection:InvokeServer(9,2) --Go Near a lake
+game.ReplicatedStorage.Connection:InvokeServer(50)
+game.ReplicatedStorage.PlayerData[game.Players.LocalPlayer.UserId].PLUS.Value = true
+while wait() do
+game.ReplicatedStorage.Connection:InvokeServer(49)
+game.ReplicatedStorage.Connection:InvokeServer(51)
+end
+end)
+
+
+local b = w:CreateFolder("Gamepass")
+
+
+b:Button("Free Boombox",function()
+    game.ReplicatedStorage.PlayerData[game.Players.LocalPlayer.UserId].BoomBox.Value = true
+end)
+
+b:Button("Free PLus",function()
+    game.ReplicatedStorage.PlayerData[game.Players.LocalPlayer.UserId].PLUS.Value = true
+end)
+
+local b = w:CreateFolder("Player")
+
+
+b:Button("IY",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()	
+end)
+
+
+b:Button("Fly (E)",function()
+	   loadstring(game:HttpGet("https://pastebin.com/raw/7rXZ9VNc", true))()
+
+end)
+
+b:Button("Noclip (R)",function()
+	    loadstring(game:HttpGet("https://pastebin.com/raw/2pwTjwS4", true))()
+end)
+
+b:Button("Infinite Jump",function()
+game:GetService("UserInputService").JumpRequest:connect(function()
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")      
+    end)
+end)
+
+local b = w:CreateFolder("UI Settings")
+
+
+
+b:DestroyGUI()
+
+b:GuiSettings() -- Use it if you want to let people customize toggles,buttons and sliders color
+
+
+end
+
+
+
